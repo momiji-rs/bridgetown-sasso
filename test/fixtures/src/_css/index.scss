@@ -1,0 +1,8 @@
+@use "sass:color";
+$brand: #3366cc;
+.card {
+  color: $brand;
+  .title { width: 8px * 2; }
+  &:hover { color: color.adjust($brand, $lightness: 10%); }
+  @at-root .footer { margin: 0; }
+}

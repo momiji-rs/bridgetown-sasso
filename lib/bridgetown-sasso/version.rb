@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+module BridgetownSasso
+  # The plugin version floats independently of the `sasso` compiler gem; the
+  # gemspec pins the compiler with a range.
+  VERSION = "0.1.0"
+end
