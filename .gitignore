@@ -1,7 +1,14 @@
 /.bundle/
 /vendor/bundle
 /pkg/
-/test/dest/
-Gemfile.lock
+/tmp/
 *.gem
+Gemfile.lock
 .DS_Store
+
+# Bridgetown build artifacts (must never be committed)
+/test/dest
+/test/fixtures/output
+.bridgetown-cache
+.bridgetown-metadata
+.bridgetown-webpack

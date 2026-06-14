@@ -35,7 +35,7 @@ class TestBridgetownSasso < Bridgetown::TestCase
 
     it "hoists @at-root to the top level (byte-exact dart-sass behavior)" do
       # `.footer` must NOT be nested under `.card`
-      assert_match(/^\.footer \{/, @css)
+      assert_match(%r{^\.footer \{}, @css)
     end
 
     it "matches a standalone sasso compile byte-for-byte" do
