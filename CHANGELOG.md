@@ -5,6 +5,24 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-06-15
+
+Now requires the `sasso` gem **>= 0.2.3**, which brings two dart-sass parity
+fixes contributed upstream by [@shyim](https://github.com/shyim):
+
+### Changed
+
+- Bump the `sasso` runtime dependency floor to **>= 0.2.3** (was `>= 0.2.0`).
+
+### Fixed (via `sasso` >= 0.2.3)
+
+- `!default` no longer evaluates its right-hand side when the variable is already
+  set, fixing a spurious "incompatible units" error in Bootstrap-on-Shopware
+  setups.
+- Legacy `rgb()` / `hsl()` preserve the caller's `rgba` / `hsla` spelling in
+  special-value passthroughs (e.g. `rgba(var(--bs-body-color-rgb), …)`), which
+  Bootstrap relies on.
+
 ## [0.1.0] - 2026-06-14
 
 Initial release. Requires the `sasso` gem **>= 0.2.0** and Bridgetown **>= 2.0**.
