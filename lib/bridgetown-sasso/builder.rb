@@ -29,7 +29,9 @@ module BridgetownSasso
         css = ::Sasso.compile(src, style: style, load_paths: extra_load_paths)
         dest = site.in_dest_dir(output.to_s)
         FileUtils.mkdir_p(File.dirname(dest))
-        File.write(dest, css)
+        # sasso >= 0.2.7's library API omits the trailing newline; a built CSS
+        # artifact conventionally ends with one (and dart-sass's CLI writes it).
+        File.write(dest, "#{css}\n")
         Bridgetown.logger.info("bridgetown-sasso:", "#{source} -> #{output} (#{style})")
       end
     end

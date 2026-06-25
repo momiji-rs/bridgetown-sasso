@@ -40,7 +40,9 @@ class TestBridgetownSasso < Bridgetown::TestCase
 
     it "matches a standalone sasso compile byte-for-byte" do
       reference = ::Sasso.compile(source_dir("_css", "index.scss"), style: :expanded)
-      assert_equal reference, @css
+      # The build artifact is the library output plus the conventional trailing
+      # newline the builder adds (sasso >= 0.2.7's library API omits it).
+      assert_equal "#{reference}\n", @css
     end
   end
 end
