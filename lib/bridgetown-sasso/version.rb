@@ -3,5 +3,5 @@
 module BridgetownSasso
   # The plugin version floats independently of the `sasso` compiler gem; the
   # gemspec pins the compiler with a range.
-  VERSION = "0.1.2"
+  VERSION = "0.1.3"
 end
