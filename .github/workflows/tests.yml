@@ -18,7 +18,8 @@ jobs:
         os: [ubuntu-latest, macos-latest]
         # 3.1 dropped: the `sasso` engine gem requires >= 3.2 as of 0.14.0, so no
         # dep set resolves there. See required_ruby_version in the gemspec.
-        ruby: ["3.2", "3.3", "3.4"]
+        # 4.0: `sasso` ships precompiled gems for it from 0.14.1.
+        ruby: ["3.2", "3.3", "3.4", "4.0"]
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1

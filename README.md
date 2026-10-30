@@ -46,6 +46,20 @@ Or scaffold everything in one step:
 bin/bridgetown apply https://github.com/momiji-rs/bridgetown-sasso
 ```
 
+### Requirements
+
+Ruby >= 3.2 (tested through 4.0), Bridgetown >= 2.0, and the `sasso` gem
+>= 0.14.0, < 1. **`sasso` 0.21 has a stricter compiler than 0.14**: some
+stylesheets that compiled before now raise `Sasso::CompileError` and fail the
+build (built-ins reject unknown argument names, and selector parsing is
+tighter). See the
+[sasso CHANGELOG](https://github.com/momiji-rs/sasso-ruby/blob/main/CHANGELOG.md).
+To hold the old compiler while you fix them, pin it in your Gemfile:
+
+```ruby
+gem "sasso", "~> 0.14.0"
+```
+
 ## Configuration
 
 All optional (defaults shown):
