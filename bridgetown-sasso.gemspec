@@ -35,6 +35,10 @@ Gem::Specification.new do |spec|
   # crate it bundles, so this floor names the compiler too: 0.14.0 carries core
   # 0.14.0 (dart-sass 1.104.1 parity), where 0.2.7 carried core 0.6.3 (1.101.0).
   # `< 1` allows the rest of the 0.x line — this plugin uses one method of it.
+  # The floor deliberately stays at 0.14.0 for sasso 0.21.0: this plugin passes
+  # only `style:` and `load_paths:`, so it needs nothing newer, and 0.21's
+  # stricter compiler rejects some stylesheets 0.14 accepted — a site hit by
+  # that can pin `sasso "~> 0.14.0"` while it fixes them. Verified green on both.
   spec.add_dependency "sasso", ">= 0.14.0", "< 1"
 
   spec.add_development_dependency "bundler"
