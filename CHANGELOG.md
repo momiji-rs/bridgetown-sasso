@@ -10,6 +10,34 @@ compiler actually installed.
 
 ## [Unreleased]
 
+Works with the `sasso` gem **0.21.0** (core 0.21.0). The requirement is
+unchanged at **>= 0.14.0, < 1**, so a fresh `bundle install` or
+`bundle update sasso` picks up 0.21.0.
+
+### Added
+
+- **Ruby 4.0** on the CI matrix. `sasso` ships precompiled gems for Ruby 4.0
+  from 0.14.1, and Bridgetown 2.2 installs there.
+
+### Changed
+
+- **`sasso` 0.21 can fail a build that compiled under 0.14.** Its compiler is
+  stricter than 0.14's: built-in functions reject unknown argument names, an
+  argument passed both positionally and by name is an error, and the selector
+  grammar is tighter. Any of these raises `Sasso::CompileError` and so fails the
+  Bridgetown build. Some edge-case output also changes, and there is a new
+  `bogus-combinators` deprecation warning. The engine gem's
+  [CHANGELOG](https://github.com/momiji-rs/sasso-ruby/blob/main/CHANGELOG.md)
+  (section `[0.21.0]`) lists every change. If a site breaks, pin
+  `gem "sasso", "~> 0.14.0"` while you fix the stylesheet.
+- The `sasso` floor deliberately stays at 0.14.0. This plugin passes only
+  `style:` and `load_paths:` to `Sasso.compile`, so it needs nothing from 0.21,
+  and keeping the floor lets a site hold 0.14 as described above. sasso 0.21's
+  new `silence_deprecations:` option is not exposed; this plugin has no
+  diagnostic options.
+- No change to this plugin's own API or configuration. Verified green on Ruby
+  4.0 against `sasso` 0.21.0 and 0.14.1 (5 tests, 12 assertions).
+
 ## [0.1.3] - 2026-09-17
 
 Now requires the `sasso` gem **>= 0.14.0** (was `>= 0.2.7`), and **Ruby >= 3.2**.
